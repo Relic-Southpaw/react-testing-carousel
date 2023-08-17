@@ -2,9 +2,14 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import Carousel from "./Carousel";
 
-it("renders without crashing", function () {
+test("Carousel renders without crashing", function () {
   render(<Carousel />);
 });
+
+test("the fragment matches snapshot", function () {
+  const { asFragment } = render(<Carousel />);
+  expect(asFragment()).toMatchSnapshot();
+})
 
 
 it("works when you click on the right arrow", function () {
